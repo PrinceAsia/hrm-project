@@ -202,3 +202,5 @@ EMAIL_HOST_USER = getenv('EMAIL_HOST_USER')
 # https://myaccount.google.com/apppasswords?rapt=AEjHL4PYdZpsTQqErM5VNV1NzBbxaWGWaAuFbG12GJMlrDId-ycKtnRDq5MSuAg_FmxYqa-gs1_wnVbAFPqwO2hfSOSpRPX0JMIYIr8aRewzquXL0x9t3us
 EMAIL_HOST_PASSWORD = getenv('EMAIL_HOST_PASSWORD')
 # EMAIL_USE_SSL = True
+
+AUTH_USER_MODEL = 'users.CustomUser'
