@@ -18,9 +18,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = getenv("SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = bool(getenv("DEBUG"))
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django_filters',
     # MY APPS
     'users',
+    'app_hours',
 ]
 
 MIDDLEWARE = [
@@ -116,13 +117,13 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.2/howto/static-files/
 
-MEDIA_URL = '/media/'
-MEDIA_ROOT = BASE_DIR / 'media'
+MEDIA_URL = getenv('MEDIA_URL')
+MEDIA_ROOT = BASE_DIR / getenv('MEDIA_ROOT')
 # /home/sarvarazim/public/media.hrm.uz/media/
 
-STATIC_URL = 'static/'
+STATIC_URL = getenv('STATIC_URL')
 if not DEBUG:
-    STATIC_ROOT = BASE_DIR / 'static'
+    STATIC_ROOT = getenv('STATIC_ROOT')
 STATICFILES_DIRS = [
     BASE_DIR / 'static',
 ]
